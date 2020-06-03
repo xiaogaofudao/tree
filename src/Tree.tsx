@@ -5,7 +5,7 @@ import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import warning from 'rc-util/lib/warning';
 import classNames from 'classnames';
-
+// import '../assets/index.less';
 import { TreeContext } from './contextTypes';
 import {
   getDataAndAria,
@@ -161,6 +161,7 @@ interface TreeState {
 
   treeData: DataNode[];
   flattenNodes: FlattenNode[];
+  flattenAllNodes: FlattenNode[];
 
   focused: boolean;
   activeKey: Key;
@@ -211,7 +212,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
 
     treeData: [],
     flattenNodes: [],
-
+    flattenAllNodes: [],
     focused: false,
     activeKey: null,
 
@@ -290,6 +291,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
         newState.expandedKeys || prevState.expandedKeys,
       );
       newState.flattenNodes = flattenNodes;
+      newState.flattenAllNodes = flattenTreeData(treeData || prevState.treeData, true);
     }
 
     // ================ selectedKeys =================
@@ -867,6 +869,31 @@ class Tree extends React.Component<TreeProps, TreeState> {
 
     if (onActiveChange) {
       onActiveChange(newActiveKey);
+    }
+  };
+
+  findNodes = activeKey => {
+    const { flattenAllNodes } = this.state;
+    if (activeKey === null) {
+      return null;
+    }
+    return flattenAllNodes.find(({ data: { key } }) => key === activeKey) || null;
+  };
+
+  checkNode = activeKey => {
+    const activeItem = this.findNodes(activeKey);
+    if (activeItem) {
+      const eventNode = convertNodePropsToEventData({
+        ...getTreeNodeProps(activeKey, this.getTreeNodeRequiredProps()),
+        data: activeItem.data,
+        active: true,
+      });
+      this.onNodeCheck(
+        {} as React.MouseEvent<HTMLDivElement>,
+        eventNode,
+        true,
+        // !this.state.checkedKeys.includes(activeKey),
+      );
     }
   };
 

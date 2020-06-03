@@ -13,10 +13,10 @@ class Demo extends React.Component {
 
   state = {
     // expandedKeys: getFilterExpandedKeys(gData, ['0-0-0-key']),
-    expandedKeys: ['0-0-0-key'],
+    expandedKeys: [],
     autoExpandParent: true,
     // checkedKeys: ['0-0-0-0-key', '0-0-1-0-key', '0-1-0-0-key'],
-    checkedKeys: ['0-0-0-key'],
+    checkedKeys: [],
     checkStrictlyKeys: { checked: ['0-0-1-key'], halfChecked: [] },
     selectedKeys: [],
     treeData: [],
@@ -33,6 +33,7 @@ class Demo extends React.Component {
   };
 
   onCheck = checkedKeys => {
+    console.log('onCheck', checkedKeys);
     this.setState({
       checkedKeys,
     });
@@ -98,9 +99,12 @@ class Demo extends React.Component {
   };
 
   triggerChecked = () => {
-    this.setState({
-      checkedKeys: [`0-0-${parseInt(Math.random() * 3, 10)}-key`],
-    });
+    this.ref.checkNode('0-1-0-0-key');
+    // console.log('triggerChecked', this.state.checkedKeys);
+
+    // this.setState({
+    //   checkedKeys: [`0-0-${parseInt(Math.random() * 3, 10)}-key`],
+    // });
   };
 
   render() {
@@ -147,6 +151,7 @@ class Demo extends React.Component {
 
         <h2>controlled</h2>
         <Tree
+          ref={ref => (this.ref = ref)}
           checkable
           onExpand={this.onExpand}
           expandedKeys={this.state.expandedKeys}

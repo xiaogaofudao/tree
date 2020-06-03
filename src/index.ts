@@ -1,5 +1,14 @@
-import Tree, { TreeProps } from './Tree';
-import TreeNode, { TreeNodeProps } from './TreeNode';
+import Tree from './AntTree';
 
-export { TreeNode, TreeProps, TreeNodeProps };
+export {
+  TreeProps,
+  AntTreeNode,
+  AntTreeNodeMouseEvent,
+  AntTreeNodeExpandedEvent,
+  AntTreeNodeCheckedEvent,
+  AntTreeNodeSelectedEvent,
+  AntdTreeNodeAttribute,
+  AntTreeNodeProps,
+} from './AntTree';
+
 export default Tree;
