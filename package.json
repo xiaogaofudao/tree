@@ -1,6 +1,6 @@
 {
   "name": "rc-tree",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "tree ui component for react",
   "engines": {
     "node": ">=8.x"
@@ -15,7 +15,6 @@
     "assets/*.css",
     "assets/*.png",
     "assets/*.gif",
-    "assets/*.less",
     "dist",
     "es",
     "lib"
@@ -26,16 +25,13 @@
     "type": "git",
     "url": "git@github.com:xiaogaofudao/tree.git"
   },
-  "bugs": {
-    "url": "http://github.com/react-component/tree/issues"
-  },
   "license": "MIT",
   "main": "./lib/index",
   "module": "./es/index",
   "scripts": {
     "start": "father doc dev --storybook",
     "build": "father doc build --storybook",
-    "compile": "father build && lessc assets/index.less assets/index.css",
+    "compile": "father build",
     "npublish": "npm run compile && np --yolo --no-publish",
     "lint": "eslint src/ examples/ --ext .tsx,.ts,.jsx,.js",
     "test": "father test",
@@ -52,17 +48,8 @@
     "@types/react-dom": "^16.9.8",
     "@types/warning": "^3.0.0",
     "css-animation": "^2.0.4",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.5.0",
     "eslint": "^7.1.0",
     "father": "^2.29.3",
-    "less": "^3.11.2",
-    "rc-dialog": "^8.0.0",
-    "rc-tooltip": "4.x",
-    "rc-trigger": "^4.3.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "typescript": "^3.9.3"
   },
   "dependencies": {

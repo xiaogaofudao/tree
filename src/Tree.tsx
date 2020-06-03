@@ -1,11 +1,7 @@
-// TODO: https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/treeview/treeview-2/treeview-2a.html
-// Fully accessibility support
-
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import warning from 'rc-util/lib/warning';
 import classNames from 'classnames';
-// import '../assets/index.less';
 import { TreeContext } from './contextTypes';
 import {
   getDataAndAria,

@@ -4,9 +4,6 @@ import RcTree, { TreeProps as RcTreeProps } from './Tree';
 import classNames from 'classnames';
 import { DataNode, Key } from './interface';
 
-import '../assets/tree.less';
-
-// import DirectoryTree from './DirectoryTree';
 import collapseMotion from './utils/motion';
 import renderSwitcherIcon from './utils/iconUtil';
 
@@ -140,6 +137,7 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<TreeProps & React.RefAttributes<RcTree>> {
   TreeNode: typeof TreeNode;
+  getRef: Function;
 }
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
@@ -158,17 +156,20 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     checkable,
   } = props;
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  let refs = null;
+  Tree.getRef = () => refs;
   return (
     <RcTree
       itemHeight={20}
-      ref={ref}
+      ref={v => {
+        refs = v;
+      }}
       virtual={true}
       {...props}
       prefixCls={prefixCls}
       className={classNames(className, {
         [`${prefixCls}-icon-hide`]: !showIcon,
         [`${prefixCls}-block-node`]: blockNode,
-        // [`${prefixCls}-rtl`]: direction === 'rtl',
       })}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
@@ -181,8 +182,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 }) as CompoundedComponent;
 
 Tree.TreeNode = TreeNode;
-
-// Tree.DirectoryTree = DirectoryTree;
 
 Tree.defaultProps = {
   checkable: false,
