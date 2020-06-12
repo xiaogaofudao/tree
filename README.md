@@ -1,53 +1,13 @@
-# rc-tree
+# vr-tree
 
 ---
 
-Tree component.
-
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![Dependencies][david-image]][david-url]
-[![DevDependencies][david-dev-image]][david-dev-url]
-[![npm download][download-image]][download-url]
-[![bundle size][bundlephobia-image]][bundlephobia-url]
-
-[npm-image]: http://img.shields.io/npm/v/rc-tree.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rc-tree
-[travis-image]: https://img.shields.io/travis/react-component/tree.svg?style=flat-square
-[travis-url]: https://travis-ci.org/react-component/tree
-[coveralls-image]: https://img.shields.io/coveralls/react-component/tree.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/react-component/tree?branch=master
-[david-url]: https://david-dm.org/react-component/tree
-[david-image]: https://david-dm.org/react-component/tree/status.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/react-component/tree?type=dev
-[david-dev-image]: https://david-dm.org/react-component/tree/dev-status.svg?style=flat-square
-[download-image]: https://img.shields.io/npm/dm/rc-tree.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-tree
-[bundlephobia-url]: https://bundlephobia.com/result?p=rc-tree
-[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/rc-tree
-
-## Screenshots
-
-<img src="https://t.alipayobjects.com/images/T15BpfXn8nXXXXXXXX.png" width="288"/>
+Tree component base on react.
 
 ## Feature
 
 - Support all popular browsers, including Internet Explorer 9 and above.
 
-## Example
-
-http://localhost:9001/
-
-online example: http://react-component.github.io/tree/
-
-## install
-
-[![rc-tree](https://nodei.co/npm/rc-tree.png)](https://npmjs.org/package/rc-tree)
-
-## Usage
-
-see examples
 
 ## API
 
@@ -118,24 +78,10 @@ see examples
 
 The number of treeNodes can be very large, but when enable `checkable`, it will spend more computing time, so we cached some calculations(e.g. `this.treeNodesStates`), to avoid double computing. But, this bring some restrictions, **when you async load treeNodes, you should render tree like this** `{this.state.treeData.length ? <Tree ...>{this.state.treeData.map(t => <TreeNode ... />)}</Tree> : 'loading tree'}`
 
-## Development
-
-```bash
-npm install
-npm start
-```
-
-## Test Case
-
-http://localhost:8018/tests/runner.html?coverage
-
-## Coverage
-
-http://localhost:8018/node_modules/rc-server/node_modules/node-jscover/lib/front-end/jscoverage.html?w=http://localhost:8018/tests/runner.html?coverage
 
 ## License
 
-rc-tree is released under the MIT license.
+vr-tree is released under the MIT license.
 
 ## other tree view
 

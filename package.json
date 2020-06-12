@@ -1,10 +1,7 @@
 {
-  "name": "rc-tree",
+  "name": "vr-tree",
   "version": "0.1.0",
   "description": "tree ui component for react",
-  "engines": {
-    "node": ">=8.x"
-  },
   "keywords": [
     "react",
     "react-component",
@@ -43,21 +40,16 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "@types/react": "^16.9.35",
-    "@types/react-dom": "^16.9.8",
-    "@types/warning": "^3.0.0",
-    "css-animation": "^2.0.4",
-    "eslint": "^7.1.0",
+    "eslint": "^7.2.0",
     "father": "^2.29.3",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@babel/runtime": "^7.10.2",
     "classnames": "2.x",
     "rc-animate": "^3.1.0",
-    "rc-util": "^5.0.1",
+    "rc-util": "^5.0.4",
     "rc-virtual-list": "^1.1.5"
   }
 }
